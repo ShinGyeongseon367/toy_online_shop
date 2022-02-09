@@ -1,6 +1,7 @@
 package org.toy.jpashop;
 
 import org.springframework.stereotype.Repository;
+import org.toy.jpashop.domain.Member;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
