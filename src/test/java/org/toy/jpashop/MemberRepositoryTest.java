@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import org.toy.jpashop.domain.Member;
+import org.toy.jpashop.repository.MemberRepository;
+import org.toy.jpashop.service.MemberService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class MemberRepositoryTest {
 
     @Autowired
-    MemberRepository memberRepository;
+    private MemberRepository memberRepository;
 
     @Test
     @Transactional
@@ -20,11 +22,6 @@ class MemberRepositoryTest {
     public void saveTest() {
         Member member = new Member();
         member.setName("shin");
-
-        Long saveId = memberRepository.save(member);
-        Member findMember = memberRepository.find(saveId);
-
-        assertThat(saveId).isEqualTo(findMember.getId());
     }
 
 }
