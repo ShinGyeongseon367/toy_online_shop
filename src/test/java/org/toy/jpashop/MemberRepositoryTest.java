@@ -24,4 +24,8 @@ class MemberRepositoryTest {
         member.setName("shin");
     }
 
+    @Test
+    public void dotdotdot() {
+    }
+
 }

@@ -1,2 +1,12 @@
-package org.toy.jpashop.domain;public class OrderSearch {
+package org.toy.jpashop.domain;
+
+import lombok.Getter;
+import lombok.Setter;
+
+
+@Getter @Setter
+public class OrderSearch {
+
+    private String memberName;
+    private OrderStatus orderStatus;
 }
