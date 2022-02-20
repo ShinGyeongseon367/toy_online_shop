@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.toy.jpashop.domain.item.Book;
+import org.toy.jpashop.domain.item.Item;
 import org.toy.jpashop.service.ItemService;
+
+import java.util.List;
 
 @Controller
 @Getter @Setter
@@ -22,8 +25,10 @@ public class ItemController {
     @GetMapping("")
     public String items(Model model) {
 
+        List<Item> items = itemService.findAll();
+        model.addAttribute("items", items);
 
-        return "";
+        return "items/itemList";
     }
 
     @GetMapping("/new")

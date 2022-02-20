@@ -29,7 +29,7 @@ public class ItemRepository {
      * 상품 목록
      */
     public List<Item> findAll() {
-        return em.createQuery("select i from Item ", Item.class).getResultList();
+        return em.createQuery("select i from Item i ", Item.class).getResultList();
     }
 
     /**
