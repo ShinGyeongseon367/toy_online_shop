@@ -44,10 +44,9 @@ public class MemberController {
             return "members/createMemberForm";
         }
 
+        // setter 남발을 하지 말자. 데이터를 따로 따로 수정하는 것이 아니라 기능을 정의해서 복잡함을 줄이자.
         Address address = new Address(form.getCity(), form.getStreet(), form.getZipcode());
-        Member member = new Member();
-        member.setName(form.getName());
-        member.setAddress(address);
+        Member member = Member.createMember(address, form.getName());
 
         memberService.join(member);
 

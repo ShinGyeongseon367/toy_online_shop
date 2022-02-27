@@ -40,7 +40,7 @@ public class OrderRepository {
             psql += " o.status = :status";
         }
 
-        if (orderSearch.getMemberName() != null) {
+        if (orderSearch.getMemberName() != null && !orderSearch.getMemberName().isBlank()) {
             if (isFirstCondition) {
                 psql += " where";
                 isFirstCondition = false;

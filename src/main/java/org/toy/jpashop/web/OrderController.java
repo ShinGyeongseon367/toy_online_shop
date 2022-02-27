@@ -15,7 +15,6 @@ import org.toy.jpashop.service.OrderService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/order")
 @RequiredArgsConstructor
 public class OrderController {
 
@@ -26,7 +25,7 @@ public class OrderController {
     /**
      * 상품 목록
      */
-    @GetMapping("")
+    @GetMapping("/order")
     public String orderList(Model model) {
 
         List<Item> items = itemService.findAll();
@@ -38,7 +37,7 @@ public class OrderController {
         return "order/orderForm";
     }
 
-    @PostMapping("/")
+    @PostMapping("/order")
     public String purcharge(@RequestParam("memberId") Long memberId,
                             @RequestParam("itemId") Long itemId,
                             @RequestParam("count") int count) {
@@ -58,7 +57,7 @@ public class OrderController {
         return "order/orderList";
     }
 
-    @PostMapping("/{orderId}/cancel")
+    @PostMapping("/orders/{orderId}/cancel")
     public String cancel(@PathVariable("orderId") Long orderId) {
 
         orderService.orderCancle(orderId);

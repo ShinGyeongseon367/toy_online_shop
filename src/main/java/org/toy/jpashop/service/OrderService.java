@@ -28,9 +28,7 @@ public class OrderService {
         Member findMember = memberRepository.findOne(memberId);
         Item findItem = itemRepository.findOne(itemId);
 
-        Delivery delivery = new Delivery();
-        delivery.setAddress(findMember.getAddress());
-        delivery.setStatus(DeliveryStatus.READY);
+        Delivery delivery = new Delivery(findMember.getAddress(), DeliveryStatus.READY);
 
         OrderItem orderItem = OrderItem.createOrderItem(findItem, findItem.getPrice(), count); // 여기가 이해가 제대로 안간다는거지
         Order order = Order.createOrder(findMember, delivery, orderItem);
